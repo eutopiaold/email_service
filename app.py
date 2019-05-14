@@ -1,11 +1,13 @@
 from flask import Flask
 from flask_graphql import GraphQLView
+import flask_cors
 
 import sendmail_schema as sendmail
 import config
 
 app = Flask(__name__)
-app.debug = False
+app.debug = True
+flask_cors.CORS(app)
 
 app.add_url_rule(
     '/send-mail',
